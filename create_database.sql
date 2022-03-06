@@ -6,3 +6,5 @@ CREATE TABLE IF NOT EXISTS Paths(
     Short VARCHAR(16) PRIMARY KEY,
     Full VARCHAR(2048)
 );
+
+GRANT ALL PRIVILEGES on *.* to 'root'@'%';
