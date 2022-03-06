@@ -1,5 +1,5 @@
 pipeline {
-    agent { node('JkvoStagingDb') }
+    agent { node('jkvo_staging_db') }
 
     environment {
         DB_PASSWORD = credentials('staging-db-password')
