@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "docker build -t jkvo_staging_db --build-arg DB_PASSWORD='$DB_PASSWORD' ."
+                sh "docker build -t jkvo_staging_db --build-arg DB_Password='$DB_PASSWORD' ."
             }
         }
         stage('clean') {
