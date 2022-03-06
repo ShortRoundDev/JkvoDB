@@ -1,7 +1,7 @@
-String[] DB_NODES = ["jkvo_prod_db_01", "jkvo_prod_db_02", "jkvo_prod_db_03"]
+
 
 def runOnAll(Closure closure){
-    for(db in DB_NODES){
+    for(db in ["jkvo_prod_db_01", "jkvo_prod_db_02", "jkvo_prod_db_03"]){
         node(db){
             closure();
         }
