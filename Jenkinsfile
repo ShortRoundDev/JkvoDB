@@ -24,7 +24,7 @@ def buildDb(){
     dir("jkvoDb"){
         sh "docker build -t jkvo_prod_db ."
     }
-    sh "rm-rf jkvoDb"
+    sh "rm -rf jkvoDb"
 }
 
 pipeline {
