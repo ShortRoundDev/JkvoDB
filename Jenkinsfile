@@ -36,7 +36,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                runOnAll(this.&cleanDb);
+                runOnAll(this.&cloneImage);
                 runOnAll(this.&buildDb);
             }
         }
