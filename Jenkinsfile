@@ -19,8 +19,12 @@ def cleanDb(){
 }
 
 def buildDb(){
+    sh "rm-rf jkvoDb"
     sh "git clone https://github.com/shortrounddev/jkvoDb"
-    sh "docker build -t jkvo_prod_db ."
+    dir("jkvoDb"){
+        sh "docker build -t jkvo_prod_db ."
+    }
+    sh "rm-rf jkvoDb"
 }
 
 pipeline {
