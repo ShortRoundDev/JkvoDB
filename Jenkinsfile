@@ -8,10 +8,6 @@ def runOnAll(Closure closure){
     }
 }
 
-def cloneImage(){
-    "sh git clone https://github.com/shortrounddev/jkvoDb"
-}
-
 def deployDb(){
     sh "(docker volume create jkvo_vm || true)"
     sh 'docker run -p 3306:3306 -d --name JkvoProdDb -v jkvo_vm:/jkvm -e MYSQL_ROOT_PASSWORD=$DB_PASSWORD jkvo_prod_db'
@@ -23,6 +19,7 @@ def cleanDb(){
 }
 
 def buildDb(){
+    sh "git clone https://github.com/shortrounddev/jkvoDb"
     sh "docker build -t jkvo_prod_db ."
 }
 
@@ -36,7 +33,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                runOnAll(this.&cloneImage);
                 runOnAll(this.&buildDb);
             }
         }
